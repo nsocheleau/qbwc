@@ -1,5 +1,6 @@
 require 'wash_out/version'
-include WashOut
+# don't include WashOut to prevent class name conflicts
+#include WashOut
 
 module QBWC
   module Controller
