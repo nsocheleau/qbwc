@@ -61,7 +61,7 @@ class QBWC::ActiveRecord::Job < QBWC::Job
   end
 
   def requests=(r)
-    find_ar_job.update_all(:requests => r)
+    find_ar_job.update_all(:requests => (Rails::VERSION::MAJOR >= 4 ? r : r.to_yaml))
     super
   end
 
@@ -79,7 +79,7 @@ class QBWC::ActiveRecord::Job < QBWC::Job
   end
 
   def data=(r)
-    find_ar_job.update_all(:data => r)
+    find_ar_job.update_all(:data => (Rails::VERSION::MAJOR >= 4 ? r : r.to_yaml))
     super
   end
 
